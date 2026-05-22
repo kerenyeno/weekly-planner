@@ -3,14 +3,14 @@ const S_HOUR=8,E_HOUR=23,PPH=58,TOTAL_H=E_HOUR-S_HOUR,WEEK_KEY="week3_done";
 const DAYS=[{name:"ראשון",date:"25/5",tag:""},{name:"שני",date:"26/5",tag:""},{name:"שלישי",date:"27/5",tag:""},{name:"רביעי",date:"28/5",tag:""},{name:"חמישי",date:"29/5",tag:""},{name:"שישי",date:"30/5",tag:""}];
 const HOURS=Array.from({length:TOTAL_H+1},(_,i)=>S_HOUR+i);
 const CAT={blocked:{label:"מחויבות",c:"#F43F5E",bg:"rgba(244,63,94,0.13)",icon:"🔒"},workout:{label:"אימון",c:"#10B981",bg:"rgba(16,185,129,0.13)",icon:"🧘"},meal:{label:"ארוחות",c:"#D97706",bg:"rgba(217,119,6,0.11)",icon:"🍽️"},admin:{label:"אדמין",c:"#2563EB",bg:"rgba(37,99,235,0.11)",icon:"📧"},content:{label:"תוכן",c:"#0891B2",bg:"rgba(8,145,178,0.11)",icon:"📱"},edit:{label:"עריכה",c:"#6366F1",bg:"rgba(99,102,241,0.11)",icon:"✂️"},study:{label:"קורס קארין",c:"#65A30D",bg:"rgba(101,163,13,0.13)",icon:"📚"},client:{label:"לקוח",c:"#7C3AED",bg:"rgba(124,58,237,0.12)",icon:"💼"},psos:{label:"PSOS",c:"#EC4899",bg:"rgba(236,72,153,0.11)",icon:"🩺"},personal:{label:"אישי",c:"#F59E0B",bg:"rgba(245,158,11,0.11)",icon:"🌸"},proposal:{label:"הצעה דיגיטלית",c:"#0EA5E9",bg:"rgba(14,165,233,0.11)",icon:"💡"},nophone:{label:"ללא טלפון",c:"#64748B",bg:"rgba(100,116,139,0.09)",icon:"📵"}};
-const RAW=[
-{id:101,day:0,s:"09:00",e:"10:00",t:"קורס קארין",n:"לימוד עצמי",type:"study"},
-{id:102,day:0,s:"10:00",e:"12:00",t:"הצעה דיגיטלית",n:"בניית ההצhעה",type:"proposal"},
+const RAW=[{id:110,day:0,s:"09:00",e:"11:00",t:"חומרים ליודן",n:"הכנת חומרים",type:"study"},
+{id:101,day:0,s:"11:00",e:"12:00",t:"קורס קארין",n:"לימוד עצמי",type:"study"},
+{id:102,day:0,s:"13:00",e:"15:00",t:"הצעה דיגיטלית",n:"בניית ההצhעה",type:"proposal"},
 {id:103,day:0,s:"12:00",e:"12:45",t:"ארוחת צהריים",n:"",type:"meal"},
-{id:104,day:0,s:"13:00",e:"14:30",t:"צילום תוכן",n:"",type:"content"},
-{id:105,day:0,s:"15:00",e:"17:00",t:"עומר",n:"פגישה אישית",type:"personal"},
-{id:106,day:0,s:"17:00",e:"17:30",t:"PSOS",n:"תרגילים גב תחתון",type:"psos"},
-{id:107,day:0,s:"18:00",e:"19:00",t:"עריכת תוכן",n:"",type:"edit"},
+{id:104,day:0,s:"15:00",e:"16:30",t:"צילום תוכן",n:"",type:"content"},
+{id:105,day:0,s:"16:30",e:"18:30",t:"עומר",n:"פגישה אישית",type:"personal"},
+{id:106,day:0,s:"18:30",e:"19:00",t:"PSOS",n:"תרגילים גב תחתון",type:"psos"},
+{id:107,day:0,s:"20:00",e:"21:00",t:"עריכת תוכן",n:"",type:"edit"},
 {id:108,day:0,s:"22:00",e:"23:00",t:"ללא טלפון",n:"",type:"nophone"},
 {id:201,day:1,s:"09:00",e:"10:00",t:"קורס קארין",n:"לימוד עצמי",type:"study"},
 {id:202,day:1,s:"10:00",e:"11:30",t:"הצעה דיגיטלית",n:"המשך בנייה",type:"proposal"},
@@ -22,7 +22,7 @@ const RAW=[
 {id:208,day:1,s:"17:00",e:"17:30",t:"PSOS",n:"תרגילים גב תחתון",type:"psos"},
 {id:209,day:1,s:"18:45",e:"19:45",t:"Vinyasa יוגה",n:"מרים פרי · בת גלים",type:"workout"},
 {id:210,day:1,s:"22:00",e:"23:00",t:"ללא טלפון",n:"",type:"nophone"},
-{id:301,day:1,s:"20:00",e:"22:00",t:"חומרים ליודן",n:"הכנת חומרים",type:"study"},
+id:107,day:0,s:"20:00",e:"21:00"
 {id:302,day:2,s:"10:00",e:"11:00",t:"יודן",n:"פגישה",type:"client"},
 {id:303,day:2,s:"11:00",e:"12:30",t:"קורס קארין",n:"לימוד עצמי",type:"study"},
 {id:304,day:2,s:"12:30",e:"13:15",t:"ארוחת צהריים",n:"",type:"meal"},
