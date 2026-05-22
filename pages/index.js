@@ -5,7 +5,7 @@ const HOURS=Array.from({length:TOTAL_H+1},(_,i)=>S_HOUR+i);
 const CAT={blocked:{label:"מחויבות",c:"#F43F5E",bg:"rgba(244,63,94,0.13)",icon:"🔒"},workout:{label:"אימון",c:"#10B981",bg:"rgba(16,185,129,0.13)",icon:"🧘"},meal:{label:"ארוחות",c:"#D97706",bg:"rgba(217,119,6,0.11)",icon:"🍽️"},admin:{label:"אדמין",c:"#2563EB",bg:"rgba(37,99,235,0.11)",icon:"📧"},content:{label:"תוכן",c:"#0891B2",bg:"rgba(8,145,178,0.11)",icon:"📱"},edit:{label:"עריכה",c:"#6366F1",bg:"rgba(99,102,241,0.11)",icon:"✂️"},study:{label:"קורס קארין",c:"#65A30D",bg:"rgba(101,163,13,0.13)",icon:"📚"},client:{label:"לקוח",c:"#7C3AED",bg:"rgba(124,58,237,0.12)",icon:"💼"},psos:{label:"PSOS",c:"#EC4899",bg:"rgba(236,72,153,0.11)",icon:"🩺"},personal:{label:"אישי",c:"#F59E0B",bg:"rgba(245,158,11,0.11)",icon:"🌸"},proposal:{label:"הצעה דיגיטלית",c:"#0EA5E9",bg:"rgba(14,165,233,0.11)",icon:"💡"},nophone:{label:"ללא טלפון",c:"#64748B",bg:"rgba(100,116,139,0.09)",icon:"📵"}};
 const RAW=[
 {id:101,day:0,s:"09:00",e:"10:00",t:"קורס קארין",n:"לימוד עצמי",type:"study"},
-{id:102,day:0,s:"10:00",e:"12:00",t:"הצעה דיגיטלית",n:"בניית ההצעה",type:"proposal"},
+{id:102,day:0,s:"10:00",e:"12:00",t:"הצעה דיגיטלית",n:"בניית ההצhעה",type:"proposal"},
 {id:103,day:0,s:"12:00",e:"12:45",t:"ארוחת צהריים",n:"",type:"meal"},
 {id:104,day:0,s:"13:00",e:"14:30",t:"צילום תוכן",n:"",type:"content"},
 {id:105,day:0,s:"15:00",e:"17:00",t:"עומר",n:"פגישה אישית",type:"personal"},
@@ -47,12 +47,12 @@ const RAW=[
 {id:507,day:4,s:"22:00",e:"23:00",t:"ללא טלפון",n:"",type:"nophone"},
 {id:601,day:5,s:"09:00",e:"10:30",t:"קורס קארין",n:"לימוד עצמי",type:"study"},
 {id:602,day:5,s:"10:30",e:"12:00",t:"עריכת תוכן",n:"",type:"edit"},
-{id:603,day:5,s:"12:00",e:"14:00",t:"זמן חופשי",n:"מנוחה ואישי",type:"personal"},
+{id:603,day:5,s:"12:00",e:"14:00",t:"זמן חופשי",n:"מנוחה ואישי",type:"personal"},{id:604,day:5,s:"08:00",e:"09:00",t:"Vinyasa יוגה",n:"נעים בנמל",type:"workout",s:"12:00",e:"14:00",t:"זמן חופשי",n:"מנוחה ואישי",type:"personal"},
 ];
 const HISTORY=[
 {week:"שבוע 1",dates:"10-15.5",workout:{done:2,total:3},study:{done:1,total:3},content:{done:1,total:3}},
 {week:"שבוע 2",dates:"20-24.5",workout:{done:2,total:3},study:{done:2,total:3},content:{done:2,total:3}},
-{week:"שבוע 3",dates:"25-30.5",workout:{done:0,total:2},study:{done:0,total:5},content:{done:0,total:3},current:true},
+{week:"שבוע 3",dates:"25-30.5",workout:{done:0,total:3},study:{done:0,total:5},content:{done:0,total:3},current:true},
 ];
 function toY(t){const[h,m]=t.split(":").map(Number);return(h+m/60-S_HOUR)*PPH;}
 function Block({ev,onToggle}){const cat=CAT[ev.type];const top=toY(ev.s);const height=Math.max(toY(ev.e)-top,20);const tiny=height<34,small=height<54;return(<div onClick={()=>onToggle(ev.id)} title={ev.t+(ev.n?" · "+ev.n:"")+" | "+ev.s+"-"+ev.e} style={{position:"absolute",top,left:2,right:2,height,background:ev.done?"rgba(241,245,249,0.9)":cat.bg,border:"1px solid "+(ev.done?"#E2E8F0":cat.c),borderRight:"3.5px solid "+(ev.done?"#CBD5E1":cat.c),borderRadius:7,padding:tiny?"1px 4px":"3px 6px",cursor:"pointer",overflow:"hidden",userSelect:"none",zIndex:1,opacity:ev.done?0.45:1}}><div style={{fontSize:tiny?7.5:9,fontWeight:700,color:ev.done?"#94A3B8":cat.c,textDecoration:ev.done?"line-through":"none",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",lineHeight:1.2}}>{ev.done?"✓ ":tiny?"":cat.icon+" "}{ev.t}</div>{!tiny&&!small&&ev.n&&!ev.done&&<div style={{fontSize:7.5,color:cat.c,opacity:0.7,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{ev.n}</div>}{!tiny&&<div style={{fontSize:7.5,color:ev.done?"#CBD5E1":cat.c,opacity:0.6}}>{ev.s}-{ev.e}</div>}</div>);}
